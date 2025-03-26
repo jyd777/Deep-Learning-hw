@@ -139,7 +139,7 @@ def run_training():
     loss_fun = torch.nn.NLLLoss()
     # rnn_model.load_state_dict(torch.load('./poem_generator_rnn'))  # if you have already trained your model you can load it by this line.
 
-    for epoch in range(30):
+    for epoch in range(50):
         batches_inputs, batches_outputs = generate_batch(BATCH_SIZE, poems_vector, word_to_int)
         n_chunk = len(batches_inputs)
         for batch in range(n_chunk):
@@ -187,9 +187,10 @@ def pretty_print_poem(poem):  # 令打印的结果更工整
         shige.append(w)
     poem_sentences = poem.split('。')
     print("".join(shige))
+    """
     for s in poem_sentences:
          if s != '' and len(s) > 10:
-             print(s + '。')
+             print(s + '。')"""
 
 
 def gen_poem(begin_word):
